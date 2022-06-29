@@ -13,17 +13,8 @@
     height:100vh;
 
 }
-h1 {
- /*   position: absolute;*/
-    color: white;
-    text-shadow: 2px 2px 2px black;
-  /*  z-index: 2;*/
 
-    text-align: center;
-    width:100%;
-    position: relative;
-}
-h2 {
+h1, h2 {
   /*   position: absolute;*/
      color: white;
      text-shadow: 2px 2px 2px black;
@@ -31,7 +22,7 @@ h2 {
      margin-top:30vh;
      text-align: center;
      width:100%;
-     position: relative;
+   transition: 2s
  }
  a, li{
    width:5%;
@@ -83,12 +74,12 @@ li{
     height:100vh;
  }
  .oferta{
-   float: right;
-   width: 100%;
-   text-align: right;
-   margin-right:50px;
-   font-size: 100px;
-   font-family: 'Oswald', sans-serif;
+  margin-left:45%;
+  width: 50%;
+  text-align: right;
+  margin-right:5%;
+  font-size: 100px;
+  font-family: 'Oswald', sans-serif;
  }
  h2.oferta{
   font-size: 60px;
@@ -113,4 +104,52 @@ li{
  .imagen_centrada img{
    height: 25vh;
  }
- 
+
+ /*-------TRANSICIONES----------*/
+
+ a {
+
+  transition:font-size 0.5s ease-in-out; /* Animation */
+
+ }
+a:hover{
+  overflow: hidden;
+  font-size:20px
+
+ }
+/*.top{
+  hldfkhjfd
+}*/
+ /*
+ .anih1{
+  top:30vh;
+  position:absolute;
+  transition: 2s;
+ }
+ .anih2{
+    margin-top:40vh;
+    position: absolute;
+    transition: ease-in-out 3s;
+ }*/
+ /*------ TRANSICIONES -----*/
+ /*------ ANIMACIONES -----*/
+ /*el código de la animación*/
+ @keyframes h1anim {
+  0%   {margin-left:0;}
+  15%  {margin-left:5vh;}
+  30%  {margin-left:10vh;}
+  45%  {margin-left:15vh;}
+  60%  {margin-left:30vh;}
+  75%  {margin-left:35vh;}
+  90%  {margin-left:40vh;}
+  100% {margin-left:45vh;}
+}
+.oferta{
+  animation-name: h1anim;
+  animation-duration: 0.5s;
+  animation-timing-function: linear;
+}
+h2.oferta{
+  animation-duration: 0.75s;
+}
+ /*------ANIMACIONES -------*/
