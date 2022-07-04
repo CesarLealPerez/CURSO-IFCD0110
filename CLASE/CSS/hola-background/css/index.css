@@ -106,7 +106,7 @@ li{
     height: 50vh;
     width: 50vw;
     border: 3px solid palevioletred; 
-    margin:50px 25vw 50px 25vw;
+    margin:25vh 25vw 50px 25vw;
  }
  .imagen_centrada img{
    height: 25vh;
@@ -140,22 +140,6 @@ a:hover{
   font-size:20px
 
  }
-/*.top{
-  hldfkhjfd
-}*/
- /*
- .anih1{
-  top:30vh;
-  position:absolute;
-  transition: 2s;
- }
- .anih2{
-    margin-top:40vh;
-    position: absolute;
-    transition: ease-in-out 3s;
- }*/
- /*------ TRANSICIONES -----*/
-
 
  /*------ ANIMACIONES -----*/
  /*el código de la animación*/
@@ -178,4 +162,4 @@ a:hover{
 h2.oferta{
   animation-duration: 0.75s;
 }
- /*------ANIMACIONES -------*/
+ /*------FIN ANIMACIONES -------*/
