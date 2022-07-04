@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
 @import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css');
+body{
+  font-family: Arial, Helvetica, sans-serif;
+}
 .background {
     background-image: url("../img/orgullo.jpg");
     background-size: cover;
@@ -13,17 +16,21 @@
     height:100vh;
 
 }
+h1, h2{
+  font-family: 'Oswald';
+}
+h2{
+  margin-top:30vh;
+}
 
 h1, h2 {
-  /*   position: absolute;*/
      color: white;
      text-shadow: 2px 2px 2px black;
-   /*  z-index: 2;*/
-     margin-top:30vh;
      text-align: center;
      width:100%;
-   transition: 2s
+     transition: 2s
  }
+ 
  a, li{
    width:5%;
    padding:10px;
@@ -50,28 +57,27 @@ a:visited{
  }
 li{
    list-style: none;
-   width: auto;
    height: 5vh;
+   min-height: 80px;
+   overflow: hidden;
+   width:20%;
+   min-width: 180px;
+   display: inline-block;
  }
  input{
    padding: 10px;
    float: right;
  }
  ul{
-   width:50%;
-   margin-left: 25%;
+   width:90%;
+   position: absolute;
+   bottom:10px;
+   left:5px;
+
  }
+
  #oferta{
   background-image: url("../img/pizza.jpg");
-  background-size: cover;
-    background-repeat: no-repeat;
-    background-position:center;
-    position: absolute;
-    z-index: -1;
-    width:100%;
-    top:0;
-    left:0;
-    height:100vh;
  }
  .oferta{
   margin-left:45%;
@@ -79,15 +85,11 @@ li{
   text-align: right;
   margin-right:5%;
   font-size: 100px;
-  font-family: 'Oswald', sans-serif;
+  transition: none;
  }
  h2.oferta{
   font-size: 60px;
   margin-bottom: -25px
- }
- body{
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-  
  }
  iframe{
    float:left
@@ -104,6 +106,22 @@ li{
  .imagen_centrada img{
    height: 25vh;
  }
+ /*--  FORMULARIO --- */
+ input[type='checkbox']{
+  clear: both;
+ }
+header{
+  position:fixed;
+  top:0px;
+  left:0px;
+  z-index:4;
+  text-align: center;
+  width:100%
+}
+.required{
+  color:red
+}
+ /*Fin formulario*/
 
  /*-------TRANSICIONES----------*/
 
@@ -132,6 +150,8 @@ a:hover{
     transition: ease-in-out 3s;
  }*/
  /*------ TRANSICIONES -----*/
+
+
  /*------ ANIMACIONES -----*/
  /*el código de la animación*/
  @keyframes h1anim {
@@ -144,6 +164,7 @@ a:hover{
   90%  {margin-left:40vh;}
   100% {margin-left:45vh;}
 }
+/*se aplica la animación*/
 .oferta{
   animation-name: h1anim;
   animation-duration: 0.5s;
