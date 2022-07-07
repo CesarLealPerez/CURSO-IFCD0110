@@ -31,6 +31,9 @@
         Background igual que el de index     
         -->
     </div>
+   
+    <li id="datosusuario">Datos del usuario:</li>
+
 <!--Empieza el formulario-->
     <form target="_self" name="form" id="form">
         <!-- Estamos usando lista desordenada para los campos de formulario
@@ -49,12 +52,12 @@
             <li>
                 <!-- Campo obligatorio tipo texto-->
                 <label for="nombre"><span class="required">*</span> Tu nombre</label><br>
-                <input type="text" name="nombre" required>
+                <input type="text" name="nombre" id="nombre" required>
 
             </li>
             <li>
                 <!-- Campo tipo numérico-->
-                <label for="nombre">Tu edad</label><br>
+                <label for="edad">Tu edad</label><br>
                 <input type="number" name="edad">
 
             </li>
@@ -67,7 +70,7 @@
             <li>
                 <!-- Campo tipo Tel (teléfono)-->
                 Teléfono <br>(formato xxx yyy zzz):<br>
-               <input type="tel" pattern="+[0-9]{2} [0-9]{9}">
+               <input type="tel" name="tel">
             </li>
             <li>
                 <!-- inputs tipo Radio-button Llevan el mismo nombre 
@@ -118,6 +121,31 @@
             </li>
         </ul>
     </form>
+    <script>
+    window.onload =function(){
+        let formulario = document.getElementById('form');
+        let datosusuario = document.getElementById('datosusuario');
+        formulario.onsubmit=function(e){
+            /* hacer el código aquí*/
+            e.preventDefault();
+            let datos = 'Datos del usuario: <hr>';
+            datos+='Nombre: ' +  formulario.elements.nombre.value;
+            datos+='<br>Edad: ' +  formulario.elements.edad.value;
+            datos+='<br>Email: ' +  formulario.elements.email.value;
+            datos+='<br>Teléfono: ' +  formulario.elements.tel.value;
+            datos+='<br>Cómo vienes: ' +  formulario.elements.comoviene.value;
+            datos+='<br>Tiene coche? ' +  formulario.elements.coche.value || 'No tiene coche';
+            datos+='<br>Tiene Moto? ' +  formulario.elements.moto.value || 'No tiene moto';
+            datos+='<br>Tiene barco? ' +  formulario.elements.barco.value;
+            datos+='<br>Curso elegido: ' +  formulario.elements.curso.value;
+            datosusuario.innerHTML=datos;
+           
+        }
+    }
+       
+            
+        
+    </script>
 </body>
 
 </html>

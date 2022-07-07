@@ -80,7 +80,10 @@ li{
    bottom:10px;
    left:5px;
  }
-
+#datosusuario{
+height:250px;
+width:40%
+}
  #oferta{
   background-image: url("../img/pizza.jpg");
  }
