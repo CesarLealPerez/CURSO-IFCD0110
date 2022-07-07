@@ -1,0 +1,107 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@200&display=swap');
+
+/*div {
+    background-image: url("../img/orgullo.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position:center;
+    position: absolute;
+    z-index: -1;
+    width:100%;
+    top:0;
+    left:0;
+    height:100vh;
+
+}*/
+h1 {
+ /*   position: absolute;*/
+    color: white;
+    text-shadow: 2px 2px 2px black;
+  /*  z-index: 2;*/
+
+    text-align: center;
+    width:100%;
+    position: relative;
+}
+h2 {
+  /*   position: absolute;*/
+     color: white;
+     text-shadow: 2px 2px 2px black;
+   /*  z-index: 2;*/
+     margin-top:30vh;
+     text-align: center;
+     width:100%;
+     position: relative;
+ }
+ a, li{
+   width:5%;
+   padding:10px;
+   border:1px solid white;
+   box-shadow: 2px 2px 1px black;
+   position:relative;
+   color:white;
+   background-color: rgba(134, 81, 202, 0.3);
+   margin:5px;
+   text-decoration: none;
+   
+ }
+
+ a:active{
+  color:rgb(81, 202, 202);
+}
+a:visited{
+  color:rgb(81, 202, 202);
+}
+ nav{
+  margin-top:30px;
+  margin-left:30px;
+  text-align: center;
+ }
+li{
+   list-style: none;
+   width: auto;
+   height: 5vh;
+ }
+ input{
+   padding: 10px;
+   float: right;
+ }
+ ul{
+   width:50%;
+   margin-left: 25%;
+ }
+ #oferta{
+  background-image: url("../img/pizza.jpg");
+ }
+ .oferta{
+   float: right;
+   width: 100%;
+   text-align: right;
+   margin-right:50px;
+   font-size: 100px;
+   font-family: 'Oswald', sans-serif;
+ }
+ h2.oferta{
+  font-size: 60px;
+  margin-bottom: -25px
+ }
+ body{
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  
+ }
+ iframe{
+   float:left
+ }
+ .imagen_centrada{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50vh;
+    width: 50vw;
+    border: 3px solid palevioletred; 
+    margin:50px 25vw 50px 25vw;
+ }
+ .imagen_centrada img{
+   height: 25vh;
+ }
+ 
