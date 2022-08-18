@@ -22,9 +22,14 @@ function escribe(texto){
 // comentado paraque no se dispàre sino con el o0nclick 
 //escribe("Hola Mundo");
 
-
+let nturno = 0;
 // función que devuelve datos.
-function sumar(n1, n2){
-    let resultado = n1 + n2;
-    return resultado;
+function sumar(n1){
+    if (n1==1){
+        nTurno++;
+    }
+    if (n1 == -1){
+        nturno = nturno -1;
+    }
+   // escribiomos nturno en el div correewspoindiente
 }
