@@ -132,64 +132,52 @@
         </ul>
     </form>
     <script>
-        let formulario = document.getElementById('form');
-        const vehiculosPosible = [
-            'coche',
-            'moto',
-            'barco'
-        ]
-        let campoDNI = document.getElementById('DNI');
-        campoDNI.onblur = function (e) {
-            e.preventDefault();
-            const validaDNI = /^\d{8}[-]{1}[aA-zZ]{1}$/;
-            const datoDNI = campoDNI.value || false;
-            
-            if (!datoDNI || !validaDNI.test(datoDNI)) {
-                alert('Pon un DNI correcto');
-                campoDNI.style.border = "2px solid red";
-                if (document.activeElement.id = "DNI") return false;
-                campoDNI.focus();
-            } else {
-                alert('DNI correcto');
-            }
+    let formul = document.getElementById('form');
+    let path = "http://localhost/CURSO-IFCD0110/hola-background/";
+    let campoDNI = document.getElementById('DNI');
+    campoDNI.onblur = function (e) {
+        e.preventDefault();
+        const validaDNI = /^\d{8}[-]{1}[aA-zZ]{1}$/;
+        const datoDNI = campoDNI.value || false;
+        
+        if (!datoDNI || !validaDNI.test(datoDNI)) {
+            alert('Pon un DNI correcto');
+            campoDNI.style.border = "2px solid red";
+            if (document.activeElement.id = "DNI") return false;
+            campoDNI.focus();
+        } else {
+            alert('DNI correcto');
         }
-        formulario.onsubmit = function (e) {
-            e.preventDefault();
-            const formData = new FormData(e.target);
-            const datosForm = Object.fromEntries(formData);
-
-            document.getElementById('textArea').value = `
-                <div>
-                    <h3 style="max-width:90% !important;color:black;text-shadow:none">
-                        ${JSON.stringify(datosForm).replace(',', ',<br>')}  
-                    </h3>
-                </div>
-            `;
-            console.log(datosForm);
+    }
+        
+    formul.onsubmit = function (e) {
+        alert()
+        e.preventDefault();
+        async function envio() {
+            const datos = new FormData(e.target);
+            let toSend = Object.fromEntries(datos);
+            //  console.log(toSend)
+            let enviar = await fetch(path + 'form.php',
+                {
+                    method: 'POST',
+                    /*
+                    * We also need to stringify the values, turn the
+                    * JavaScript object to a single string that is accepted
+                    * as JSON. So we are sending one string that contains
+                    * all our values
+                    */
+                    mode: 'no-cors',
+                    body: JSON.stringify(toSend),
+                    headers: {
+                        'Content-Type': 'application/json'
+                        // 'Content-Type': 'application/x-www-form-urlencoded',
+                    }
+                });
+            let escribir = await enviar.json();
+            document.body.innerHTML = JSON.stringify(escribir)
         }
-    </script>
-    <script>
-        /*  window.onload =function(){
-              let formulario = document.getElementById('form');
-              let datosusuario = document.getElementById('datosusuario');
-              formulario.onsubmit=function(e){
-                  /* hacer el código aquí*/
-        /*         e.preventDefault();
-                 let datos = 'Datos del usuario: <hr>';
-                 datos+='Nombre: ' +  formulario.elements.nombre.value;
-                 datos+='<br>Edad: ' +  formulario.elements.edad.value;
-                 datos+='<br>Email: ' +  formulario.elements.email.value;
-                 datos+='<br>Teléfono: ' +  formulario.elements.tel.value;
-                 datos+='<br>Cómo vienes: ' +  formulario.elements.comoviene.value;
-                 datos+='<br>Tiene coche? ' +  formulario.elements.coche.value || 'No tiene coche';
-                 datos+='<br>Tiene Moto? ' +  formulario.elements.moto.value || 'No tiene moto';
-                 datos+='<br>Tiene barco? ' +  formulario.elements.barco.value;
-                 datos+='<br>Curso elegido: ' +  formulario.elements.curso.value;
-                 datosusuario.innerHTML=datos;
-                 datosusuario.style.opacity='1';
-                 datosusuario.style.transition='opacity 2s';
-             }
-         }   */
+        envio();
+    }
     </script>
 </body>
 
