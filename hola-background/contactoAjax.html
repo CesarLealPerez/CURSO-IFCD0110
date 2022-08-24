@@ -162,32 +162,26 @@
          **/
         formul.onsubmit = function (e) {  // Captar el evento de envío del formulario
             e.preventDefault(); // Evitamos el evento por defecto de ese objeto del dom
-                                // Que el envío a archivo del formulario
+            // Que el envío a archivo del formulario
             console.log(e); // Aquí imprimimos el evento entero
-            async function envio() { // Declaramos la función que enivará los datos
-              //  dni();
+            function envio() { // Declaramos la función que enivará los datos
+                //  dni();
                 const datos = new FormData(e.target); // Aquí recogemos los datos del form
-                                                      // convertidos a objeto
+                // convertidos a objeto
                 let toSend = Object.fromEntries(datos); // Creamos el objeto tipo jSon que enviaremos
                 console.log(toSend) //Imprimimos ese json
-                let enviar = await fetch(path + 'form.php', // Enviamos los datos a la url path + endpoint
-                    { // 2º parámetro: Ajustes
-                        method: 'POST', // POST, GET, PUT , DELETE ..
-                        /*
-                        * We also need to stringify the values, turn the
-                        * JavaScript object to a single string that is accepted
-                        * as JSON. So we are sending one string that contains
-                        * all our values
-                        */
-                        // mode: 'no-cors',
-                        body: JSON.stringify(toSend)
-                    });
-                let escribir = await enviar.json(); // Establecemos como variable la respuesta del servidor
-               // let escribir = await enviar.text();                                    // que se obtiene llamando a la función que hace la petición
-              
-                console.log(escribir)               //  document.body.innerHTML = JSON.stringify(escribir);
+                $.ajax({
+                    method: 'post',
+                    url: path + 'form.php',
+                    data: JSON.stringify(toSend),
+                    dataType: 'text'
+                  //  dataType: 'json'
+                }).done(function(data){
+                    document.body.innerHTML = data+'<br>OK';
+                }).fail(function(e){
+                    document.body.innerHTML = JSON.stringify(e)+'<br>FALLO';
+                });
             }
-            envio(); // PRIMERA ACCIÓN QUE SE HACE EN REALIDAD AL (ON)SUMBIT Ejecutamos toda FUNCIÓN DE ENVÍO CON SUS VARIABLES
         }
     </script>
 </body>
