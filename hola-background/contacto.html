@@ -182,8 +182,11 @@
                         // mode: 'no-cors',
                         body: JSON.stringify(toSend)
                     });
+
+                    // recibimos json_encode($data);
                 let escribir = await enviar.json(); // Establecemos como variable la respuesta del servidor
-               // let escribir = await enviar.text();                                    // que se obtiene llamando a la función que hace la petición
+                // recibimos $data['nombre'] (por ejemplo)
+                // let escribir = await enviar.text();                                    // que se obtiene llamando a la función que hace la petición
               
                 console.log(escribir)               //  document.body.innerHTML = JSON.stringify(escribir);
             }

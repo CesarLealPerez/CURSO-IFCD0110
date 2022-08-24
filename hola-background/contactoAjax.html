@@ -174,8 +174,8 @@
                     method: 'post',
                     url: path + 'form.php',
                     data: JSON.stringify(toSend),
-                    dataType: 'text'
-                  //  dataType: 'json'
+                    dataType: 'text' // si devuelve $data['nombre'] (por ejemplo)
+                  //  dataType: 'json' // si devuelve json_encode($data).
                 }).done(function(data){
                     document.body.innerHTML = data+'<br>OK';
                 }).fail(function(e){
