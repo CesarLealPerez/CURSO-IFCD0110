@@ -23,6 +23,7 @@
                 Oferta
             </a>
         </nav>
+        
     </header>
     <div class="background">
         <!--
@@ -130,6 +131,8 @@
             </li>
         </ul>
     </form>
+    <footer>
+            </footer>
     <script>
 
         let formul = document.getElementById('form');// Aquí obtenemos el objeto del DOM
@@ -167,26 +170,19 @@
             async function envio() { // Declaramos la función que enivará los datos
               //  dni();
                 const datos = new FormData(e.target); // Aquí recogemos los datos del form
-                                                      // convertidos a objeto
+                datos.append('curso',2022);                              // convertidos a objeto
                 let toSend = Object.fromEntries(datos); // Creamos el objeto tipo jSon que enviaremos
                 console.log(toSend) //Imprimimos ese json
                 let enviar = await fetch(path + 'form.php', // Enviamos los datos a la url path + endpoint
                     { // 2º parámetro: Ajustes
                         method: 'POST', // POST, GET, PUT , DELETE ..
-                        /*
-                        * We also need to stringify the values, turn the
-                        * JavaScript object to a single string that is accepted
-                        * as JSON. So we are sending one string that contains
-                        * all our values
-                        */
-                        // mode: 'no-cors',
                         body: JSON.stringify(toSend)
                     });
 
                     // recibimos json_encode($data);
-                let escribir = await enviar.json(); // Establecemos como variable la respuesta del servidor
+                //let escribir = await enviar.json(); // Establecemos como variable la respuesta del servidor
                 // recibimos $data['nombre'] (por ejemplo)
-                // let escribir = await enviar.text();                                    // que se obtiene llamando a la función que hace la petición
+                 let escribir = await enviar.text();                                    // que se obtiene llamando a la función que hace la petición
               
                 console.log(escribir)               //  document.body.innerHTML = JSON.stringify(escribir);
             }

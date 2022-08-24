@@ -130,6 +130,7 @@
             </li>
         </ul>
     </form>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
 
         let formul = document.getElementById('form');// Aquí obtenemos el objeto del DOM
@@ -164,24 +165,23 @@
             e.preventDefault(); // Evitamos el evento por defecto de ese objeto del dom
             // Que el envío a archivo del formulario
             console.log(e); // Aquí imprimimos el evento entero
-            function envio() { // Declaramos la función que enivará los datos
-                //  dni();
-                const datos = new FormData(e.target); // Aquí recogemos los datos del form
-                // convertidos a objeto
-                let toSend = Object.fromEntries(datos); // Creamos el objeto tipo jSon que enviaremos
-                console.log(toSend) //Imprimimos ese json
-                $.ajax({
-                    method: 'post',
-                    url: path + 'form.php',
-                    data: JSON.stringify(toSend),
-                    dataType: 'text' // si devuelve $data['nombre'] (por ejemplo)
-                  //  dataType: 'json' // si devuelve json_encode($data).
-                }).done(function(data){
-                    document.body.innerHTML = data+'<br>OK';
-                }).fail(function(e){
-                    document.body.innerHTML = JSON.stringify(e)+'<br>FALLO';
-                });
-            }
+            //  function envio() { // Declaramos la función que enivará los datos
+            //  dni();
+            const datos = new FormData(e.target); // Aquí recogemos los datos del form
+            // convertidos a objeto
+            let toSend = Object.fromEntries(datos); // Creamos el objeto tipo jSon que enviaremos
+            console.log(toSend) //Imprimimos ese json
+            $.ajax({
+                method: 'post',
+                url: path + 'form.php',
+                data: JSON.stringify(toSend),
+                dataType: 'text' // si devuelve $data['nombre'] (por ejemplo)
+                //  dataType: 'json' // si devuelve json_encode($data).
+            }).done(function (data) {
+                document.body.innerHTML = data + '<br>OK';
+            }).fail(function (e) {
+                document.body.innerHTML = JSON.stringify(e) + '<br>FALLO';
+            });
         }
     </script>
 </body>
