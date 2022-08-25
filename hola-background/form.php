@@ -7,6 +7,6 @@
      header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, FETCH, OPTIONS");
      header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
      $data = json_decode(file_get_contents('php://input'), true);
-    // echo json_encode($data); // Así hay que esperar uun jSon en el JS o type 'json' en jQuery
-     echo $data['nombre']; // Así, en el JS hay que esperar un text() o type: 'text' en jquery
+    // echo json_encode($data); // Así hay que esperar un jSon en el JS Fetch o type 'json' en jQuery
+     echo '<ul><li>'.$data['nombre']. '</li><li>'.$datos['edad']; // Así, en el JS hay que esperar un text() o type: 'text' en jquery
     exit;

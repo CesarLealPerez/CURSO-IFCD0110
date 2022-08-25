@@ -132,7 +132,6 @@
     </form>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script>
-
         let formul = document.getElementById('form');// Aquí obtenemos el objeto del DOM
         let path = "http://localhost/CURSO-IFCD0110/hola-background/"; // Aquí declaramos la ruta base para peticiones API
         let campoDNI = document.getElementById('DNI');
@@ -176,7 +175,7 @@
                 url: path + 'form.php',
                 data: JSON.stringify(toSend),
                 dataType: 'text' // si devuelve $data['nombre'] (por ejemplo)
-                //  dataType: 'json' // si devuelve json_encode($data).
+                //dataType: 'json' // si devuelve json_encode($data).
             }).done(function (data) {
                 document.body.innerHTML = data + '<br>OK';
             }).fail(function (e) {

@@ -182,9 +182,10 @@
                     // recibimos json_encode($data);
                 //let escribir = await enviar.json(); // Establecemos como variable la respuesta del servidor
                 // recibimos $data['nombre'] (por ejemplo)
-                 let escribir = await enviar.text();                                    // que se obtiene llamando a la función que hace la petición
-              
-                console.log(escribir)               //  document.body.innerHTML = JSON.stringify(escribir);
+                let escribir = await enviar.text();                                    // que se obtiene llamando a la función que hace la petición
+                document.body.innerHTML = data + '<br>OK';
+         
+                console.log(escribir);            //  document.body.innerHTML = JSON.stringify(escribir);
             }
             envio(); // PRIMERA ACCIÓN QUE SE HACE EN REALIDAD AL (ON)SUMBIT Ejecutamos toda FUNCIÓN DE ENVÍO CON SUS VARIABLES
         }
