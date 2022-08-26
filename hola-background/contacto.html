@@ -23,7 +23,7 @@
                 Oferta
             </a>
         </nav>
-        
+
     </header>
     <div class="background">
         <!--
@@ -132,7 +132,7 @@
         </ul>
     </form>
     <footer>
-            </footer>
+    </footer>
     <script>
 
         let formul = document.getElementById('form');// Aquí obtenemos el objeto del DOM
@@ -165,26 +165,30 @@
          **/
         formul.onsubmit = function (e) {  // Captar el evento de envío del formulario
             e.preventDefault(); // Evitamos el evento por defecto de ese objeto del dom
-                                // Que el envío a archivo del formulario
+            // Que el envío a archivo del formulario
             console.log(e); // Aquí imprimimos el evento entero
             async function envio() { // Declaramos la función que enivará los datos
-              //  dni();
+                //  dni();
                 const datos = new FormData(e.target); // Aquí recogemos los datos del form
-                datos.append('curso',2022);                              // convertidos a objeto
+                datos.append('curso', 2022);                              // convertidos a objeto
                 let toSend = Object.fromEntries(datos); // Creamos el objeto tipo jSon que enviaremos
                 console.log(toSend) //Imprimimos ese json
                 let enviar = await fetch(path + 'form.php', // Enviamos los datos a la url path + endpoint
                     { // 2º parámetro: Ajustes
                         method: 'POST', // POST, GET, PUT , DELETE ..
                         body: JSON.stringify(toSend)
-                    });
+                    }).then(async response => {
 
-                // recibimos json_encode($data);
-                //let escribir = await enviar.json(); // Establecemos como variable la respuesta del servidor
-                // recibimos $data['nombre'] (por ejemplo)
+                    }).catch(error => {
+                        element.parentElement.innerHTML = `Error: ${error}`;
+                        console.error('There was an error!', error);
+                    });
+                ;
+
+
                 let escribir = await enviar.text();                                    // que se obtiene llamando a la función que hace la petición
                 document.body.innerHTML = data + '<br>OK';
-         
+
                 console.log(escribir);            //  document.body.innerHTML = JSON.stringify(escribir);
             }
             envio(); // PRIMERA ACCIÓN QUE SE HACE EN REALIDAD AL (ON)SUMBIT Ejecutamos toda FUNCIÓN DE ENVÍO CON SUS VARIABLES

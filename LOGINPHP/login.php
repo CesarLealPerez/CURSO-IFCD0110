@@ -7,11 +7,12 @@
      header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, FETCH, OPTIONS");
      header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
      $data = json_decode(file_get_contents('php://input'), true);
-       $userguardado="ablaracurcix";
-    $passwordguardadao="pinpanpum";
+    $userguardado="ablaracurcix";
+    $passwordguardado="pinpanpum";
     $user = $data["user"];
     $password = $data["password"];
     if ($user == $userguardado && $password==$passwordguardado){
+        echo "enhorabuena";
         exit;
     }else{
         http_response_code(401);

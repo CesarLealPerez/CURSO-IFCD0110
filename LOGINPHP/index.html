@@ -29,9 +29,9 @@
       <div class="modal-content">
         <div class="modal-header">
           <h5 class="modal-title">Indica tus credenciales</h5>
-        <!-- <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+          <!-- <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
-          </button>--> 
+          </button>-->
         </div>
         <div class="modal-body">
           <form name="login" id="login">
@@ -47,7 +47,7 @@
           </form>
         </div>
         <div class="modal-footer">
-       <!--   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>--> 
+          <!--   <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>-->
         </div>
       </div>
     </div>
@@ -55,42 +55,46 @@
   <script>
     $(document).ready(function () {
       let esLogin = false;
-      if (!esLogin) {
-        $("#elModal").modal('show');
-        // document.getElementById('elModal').modal('show')
-
-      } else {
-        $('#bienvenida').show('slow'); // jQuery
-        //document.getelementById('bienvenida').style.display='block';  // document.getelementById('bienvenida').style.display='block' 
-        $("#elModal").modal('hide');
-      }
+      /* if (!esLogin) {
+         $("#elModal").modal('show');
+         // document.getElementById('elModal').modal('show')
+ 
+       } else {
+         $('#bienvenida').show('slow'); // jQuery
+         //document.getelementById('bienvenida').style.display='block';  // document.getelementById('bienvenida').style.display='block' 
+         $("#elModal").modal('hide');
+       }*/
+      $("#elModal").modal('show');
       $('#abremodal').on('click', function () {
         // El evento clock en el botón abrir modal (o ,login)
         $("#elModal").modal('show');
       })
-
       $('#login').on('submit', function (e) {
         //formul.onsubmit = function (e) {  
-         e.preventDefault();
+        e.preventDefault();
         async function envio() { // Declaramos la función que enivará los datos
           let path = "http://localhost/CURSO-IFCD0110/LOGINPHP/";
           //  dni();
           const datos = new FormData(e.target); // Aquí recogemos los datos del form                            // convertidos a objeto
           let toSend = Object.fromEntries(datos); // Creamos el objeto tipo jSon que enviaremos
           $('#bienvenida').show('slow');
-          try {
-            let enviar = await fetch(path + 'login.php', // Enviamos los datos a la url path + endpoint
-              { // 2º parámetro: Ajustes
-                method: 'POST', // POST, GET, PUT , DELETE ..
-                body: JSON.stringify(toSend)
-              });
+
+          let enviar = await fetch(path + 'login.php', // Enviamos los datos a la url path + endpoint
+            { // 2º parámetro: Ajustes
+              method: 'POST', // POST, GET, PUT , DELETE ..
+              body: JSON.stringify(toSend)
+            }).then(async response => {
+              console.log(response)
               $("#elModal").modal('hide');
-              esLogin=true;
-            
-          } catch (e) {
-            $("#elModal").modal('hide');
-            $('#bienvenida').text('ERROR: User o Password incorrectos<br>'+e);
-          }
+              esLogin = true;
+              if (response.status != 200)
+                $('#bienvenida').text('ERROR: User o Password incorrectos' + JSON.stringify(e));
+
+            }).catch(error => {
+              $("#elModal").modal('hide');
+            });
+          $("#elModal").modal('hide');
+          esLogin = true;
         }
         envio();
       })
