@@ -1,28 +1,24 @@
+
 <?php
-     ini_set('display_errors', '1');
+ /*    ini_set('display_errors', '1');
      ini_set('display_startup_errors', '1');
-     error_reporting(E_ALL);
+     error_reporting(E_ALL);*/
      header("Access-Control-Allow-Origin: *");
      header("Content-Type: application/json; charset=UTF-8");
      header("Access-Control-Allow-Methods: GET, POST, PUT, DELETE, FETCH, OPTIONS");
      header("Access-Control-Allow-Headers: Content-Type, Access-Control-Allow-Headers, Authorization, X-Requested-With");
     // Recogemos todos los datos enviado por el usuario desde l formulario de cliente
      $data = json_decode(file_get_contents('php://input'), true);
-     // El nombre de usuARIO QUE DEBE SER
-    $userguardado="ablaracurcix";
-    // El passwoprd que debe ser
-    $passwordguardado="pinpanpum";
-    //Extraemos de lo0sdatos el dato de nombre de usuario enviado por el client
-    $user = $data["user"];
-    // Extraemos el password enviado por el cliente
-    $password = $data["password"];
-    // Comprobamos que coinciden
-    // Si lo hacen 
-    if ($user == $userguardado && $password==$passwordguardado){
-        echo "enhorabuena";
+     
+     // Valores de conexión a la base de datos
+     $server = 'localhost';
+     $user = 'ifcd0110';
+     $pass = 'clase-IFCD0110';
+     $db = 'clase';
+    if (!mysqli_connect($server, $user, $pass, $db)){
+        echo '<h1>ERROR, no se ha podido conectar con la base de datos</h1>';
+        http_response_code(500);
         exit;
-        // Si no lo hacen
-    }else{
-        http_response_code(401);
     }
-    exit;
+    echo "<h1>ENHORABUENA, te has coectado a la base de datos</h1>";
+ exit;
