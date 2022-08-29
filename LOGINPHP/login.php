@@ -20,5 +20,5 @@
         http_response_code(500);
         exit;
     }
-    echo "<h1>ENHORABUENA, te has coectado a la base de datos</h1>";
+    echo "<h1>ENHORABUENA, te has conectado a la base de datos</h1>";
  exit;
